@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Calculator</title>
+  <style>
+    
+
+    .container {
+      height: 460px;
+      width: 400px;
+      background-color:#4d4d4d; 
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 20px;
+      border: double #0d0d0d 5px;
+      margin-top: 10px;
+      margin-top: 50px;
+    }
+
+    .calculator-brand-name {
+      color: White;
+      margin-left: 20px;
+      padding-top: 20px;
+      display: block;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .calulator-screen {
+      font-size: 40px;
+      width: 350px;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      background-color: #b3b3b3;
+      border: double #655555 5px;
+      border-radius: 5px;
+    }
+
+    .button-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+    }
+
+    .calculator-button {
+      background-color: aliceblue;
+      height: 40px;
+      width: 40px;
+      margin: 10px;
+      font-size: 30px;
+      border-radius: 8px;
+      border: #060707 1px solid;
+      box-shadow: 0px 3px 3px 0px black;
+      font-weight: bold;
+      cursor: pointer;
+      justify-content: space-around;
+    }
+
+    .calculator-button:hover {
+      box-shadow: 0 4px 5px #8a8a5c;
+      transition: 0.3s;
+    }
+
+    .font-cal {
+      font-size: 10px;
+      padding: 0;
+      margin-left: auto;
+      margin-right: auto;
+      color: red;
+    }
+
+    .font-cal2 {
+      font-size: 15px;
+    }
+
+    .font-cal3 {
+      font-size: 20px;
+    }
+
+    .bg-color {
+      background-color:#d9d9d9 ;
+      border: red;
+    }
+
+    .bg-color-red {
+      color: red;
+    }
+
+    .bg-color-reddish {
+      background-color: red;
+      color: beige;
+    }
+
+    .btn-plus-minus {
+      visibility: hidden;
+    }
+
+    .btn-height {
+      height: 100px;
+      position: relative;
+      bottom: 60px;
+    }
+
+    .btn-container-last-row {
+      position: absolute;
+    }
+
+    .btn-container-last-row-plus {
+      position: relative;
+      bottom: -2px;
+      margin-right: 10px;
+    }
+
+    #last-row {
+      position: relative;
+      bottom: 57px;
+    }
+
+    .host {
+      background-color: #52ade667;
+      color: #060707;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      width: 50%;
+      margin: auto;
+      margin-top: 40px;
+      border-radius: 20px;
+      border: solid 2px black;
+    }
+  </style>
+</head>
+
+
+<body>
+  <script type="text/javascript">
+    function handleClick(val) {
+      const inputBox = document.getElementById("calculator-screen");
+      inputBox.value = inputBox.value + val;
+    }
+
+    function clearScreen() {
+      const inputBox = document.getElementById("calculator-screen");
+      inputBox.value = "";
+    }
+
+    function calculate() {
+      const inputBox = document.getElementById("calculator-screen");
+      const ans = eval(inputBox.value);
+      inputBox.value = ans;
+    }
+  </script>
+  <div class="container">
+    <p class="calculator-brand-name">CASIO</p>
+    <input type="text" class="calulator-screen" id="calculator-screen" />
+    <div class="button-container">
+      <button class="calculator-button font-cal bg-color">CHECK</button>
+      <button class="calculator-button font-cal font-cal2 bg-color" onclick="clearScreen()">
+        Del
+      </button>
+      <button class="calculator-button font-cal font-cal2 bg-color" onclick="handleClick('GT')">
+        GT
+      </button>
+      <button class="calculator-button font-cal bg-color">AUTO REPLAY</button>
+      <button class="calculator-button font-cal font-cal2 bg-color-reddish" onclick="clearScreen()">
+        ON
+      </button>
+    </div>
+    <div class="button-container">
+      <button class="calculator-button" onclick="handleClick(7)">7</button>
+      <button class="calculator-button" onclick="handleClick(8)">8</button>
+      <button class="calculator-button" onclick="handleClick(9)">9</button>
+      <button class="calculator-button font-cal2" onclick="handleClick('%')">
+        %
+      </button>
+      <button class="calculator-button font-cal2 bg-color-reddish" onclick="clearScreen('OFF')">
+        OFF
+      </button>
+    </div>
+    <div class="button-container">
+      <button class="calculator-button" onclick="handleClick(4)">4</button>
+      <button class="calculator-button" onclick="handleClick(5)">5</button>
+      <button class="calculator-button" onclick="handleClick(6)">6</button>
+      <button class="calculator-button" onclick="handleClick('/')">/</button>
+      <button class="calculator-button" onclick="handleClick('*')">*</button>
+    </div>
+    <div class="button-container">
+      <button class="calculator-button" onclick="handleClick(1)">1</button>
+      <button class="calculator-button" onclick="handleClick(2)">2</button>
+      <button class="calculator-button" onclick="handleClick(3)">3</button>
+      <button class="calculator-button btn-plus-minus" onclick="handleClick('-')">
+        -
+      </button>
+      <button class="calculator-button" onclick="handleClick('-')">-</button>
+    </div>
+    <div class="button-container">
+      <button class="calculator-button btn-container-last-row btn-container-last-row-plus" onclick="handleClick('.')">
+        .
+      </button>
+      <button class="calculator-button btn-container-last-row btn-container-last-row-plus" onclick="handleClick(0)">
+        0
+      </button>
+      <button class="calculator-button font-cal3 btn-container-last-row btn-container-last-row-plus"
+        onclick="handleClick('00')">
+        00
+      </button>
+      <button class="calculator-button btn-container-last-row btn-container-last-row-plus btn-height" id="last-row"
+        onclick="handleClick('+')">
+        +
+      </button>
+      <button class="calculator-button bg-color-reddish" onclick="calculate('=')">=</button>
+    </div>
+  </div>
+
+
+  
+</body>
+
+</html>
+
